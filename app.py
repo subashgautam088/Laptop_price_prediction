@@ -3,8 +3,8 @@ import pickle
 import numpy as np
 
 # Import the model
-pipe = pickle.load(open('model.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+pipe = pickle.load(open('forest_model.pkl', 'rb'))
+df = pickle.load(open('df2.pkl', 'rb'))
 
 # Title
 st.title("Laptop Price Prediction")
@@ -16,13 +16,13 @@ company = st.selectbox('Brand', sorted(df['Company'].unique()))
 type = st.selectbox("Type", sorted(df['TypeName'].unique()))
 
 # Ram
-ram = st.selectbox("RAM", sorted(df['Ram'].unique()))
+ram = st.selectbox("RAM", sorted(df['Ram(GB)'].unique()))
 
 # Weight
 weight = st.number_input("Weight of the Laptop")
 
 # TouchScreen
-touchscreen = st.selectbox("TouchScree", ['No', 'Yes'])
+touchscreen = st.selectbox("TouchScreen", ['No', 'Yes'])
 
 # Ips
 ips = st.selectbox("IPS", ['No', 'Yes'])
@@ -41,6 +41,9 @@ hdd = st.selectbox("HDD(in GB)", [0,128,256,512,1024,2048])
 
 # SSD
 ssd = st.selectbox("SSD(in GB)", [0,128,256,512,1024,2048])
+
+#Hybrid
+hybrid = st.selectbox("Hybrid", ['No','Yes'])
 
 # Gpu
 gpu = st.selectbox('GPU', sorted(df['Gpu brand'].unique()))
